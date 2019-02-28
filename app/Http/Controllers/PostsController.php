@@ -25,7 +25,7 @@ class PostsController extends Controller
         * return view('posts.index');
         */
 
-        $post = Post::all();
+        $post = Post::orderBy('created_at', 'DESC')->paginate(3);
         return view('posts.index')->with('kippetje', $post);
     }
 
@@ -36,7 +36,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create')->with();
+        return view('posts.create');
     }
 
     /**
@@ -47,7 +47,21 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'post_title' => 'required',
+            'post_body' => 'required',
+            'post_url' => 'required',
+        ]);
+        //dd (request()->all());
+        
+        //create post like when using tinker, but with request for what went into the specific input field
+        $post =  new Post;
+        $post->post_title = $request->input('post_title');
+        $post->post_body = $request->input('post_body');
+        $post->post_url = $request->input('post_url');
+        $post->save();
+
+        return redirect('/posts')->with('success', 'Post Created');
     }
 
     /**
@@ -56,9 +70,10 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($post_id)
     {
-        //
+        $post = Post::find($post_id);
+        return view('posts.show')->with('kippetje', $post);
     }
 
     /**
@@ -67,9 +82,10 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($post_id)
     {
-        //
+        $post = Post::find($post_id);
+        return view('posts.edit')->with('kippetje', $post);
     }
 
     /**
@@ -79,9 +95,23 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $post_id)
     {
-        //
+        $this->validate($request, [
+            'post_title' => 'required',
+            'post_body' => 'required',
+            'post_url' => 'required',
+        ]);
+        //dd (request()->all());
+        
+        //create post like when using tinker, but with request for what went into the specific input field
+        $post =  Post::find($post_id);
+        $post->post_title = $request->input('post_title');
+        $post->post_body = $request->input('post_body');
+        $post->post_url = $request->input('post_url');
+        $post->save();
+
+        return redirect('/posts')->with('success', 'Post Updated');
     }
 
     /**
@@ -90,8 +120,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($post_id )
     {
-        //
+        $post =  Post::find($post_id);
+        $post->delete();
+
+        return redirect('/posts')->with('success', 'Post Removed');
     }
 }

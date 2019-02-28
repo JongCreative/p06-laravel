@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="content">
     <h1> {{$aapje}}</h1>
     @if(count($languages) > 0)
         <ul>
@@ -9,4 +10,5 @@
             @endforeach
         </ul>
     @endif
+</div>
 @endsection 

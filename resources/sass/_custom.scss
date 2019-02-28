@@ -1,5 +1,61 @@
 body {
-    background-color: red;
+    background-color: $blue;
 }
 
 /* $body-bg: #f8fafc; */
+
+/* START GLOBAL BODY.
+________________________________________________________*/
+/* flexbox */
+.main-positioning {
+    background-color: $red;
+    padding: 10px;
+}
+.positioning{
+    display: flex;
+    flex-direction: row;
+    background-color: $green;
+    margin: 10px;
+}
+.container-post {
+    display: flex;
+    flex-direction: column;
+    padding: 1px;
+    background-color: palegoldenrod;
+    border-radius: 10px;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: none;
+    padding: 5px;
+    border: 2px solid $blue;
+    border-radius: 10px;
+}
+.section-post {
+    padding: 5px;
+    list-style: none;
+}
+.positioning2 {
+    flex-direction: column;
+}
+/* START NAV.
+________________________________________________________*/
+.wrapper-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* START POST.
+________________________________________________________*/
+
+.container-posts {
+    display: flex;
+    flex-direction: column;
+}
+.posts-index,
+.post-show {
+    flex-direction: column;
+}

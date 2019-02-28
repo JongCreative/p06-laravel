@@ -4,21 +4,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
-        <link rel="stylesheet" href="{{asset('customApp.css')}}">
 
         <title>{{config('app.name', 'p06 - project 6 laravel')}}</title>
         @include('inc.styles')
 
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @include('inc.navbar')
+        <main class="main-positioning">
 
-            <div class="content">
-                    <div class="title m-b-md"></div>
+            <div class="positioning positioning1">
+                @include('inc.navbar')
+            </div>
+            <div class="positioning positioning2">
+                {{-- @include('inc.messages') --}}
+            </div>
+            <div class="positioning positioning3">
                 @yield('content')
             </div>
-        </div>
+
+        </main>
     </body>
 </html>
 
