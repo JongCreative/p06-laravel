@@ -17,11 +17,11 @@
     </div>
 
     <div class="positioning posts-show posts-show3">
-        <button> <a class="btn" href="/posts/{{$kippetje->post_id}}">edit</a></button>
-        <form class="form-insert" action="/posts" method="POST">
+        <button> <a class="btn" href="/posts/{{$kippetje->post_id}}/edit">edit</a></button>
+        <form class="form-insert" action="/posts/{{$kippetje->post_id}}" method="POST">
             @method('DELETE')            
             @csrf
-            <button class="post-insert insert-2.2" type="submit">delete</button>
+            <button class="post-insert insert-2.2" type="submit" value="delete">delete</button>
         </form>
         
     </div>

@@ -120,7 +120,7 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($post_id )
+    public function destroy($post_id)
     {
         $post =  Post::find($post_id);
         $post->delete();
