@@ -17,7 +17,7 @@
     </div>
 
     <div class="positioning posts-show posts-show3">
-        <button> <a class="btn" href="/posts/{{$kippetje->post_id}}/edit">edit</a></button>
+        <button> <a class="btn" href="/posts/{{$kippetje->post_id}}">edit</a></button>
         <form class="form-insert" action="/posts" method="POST">
             @method('DELETE')            
             @csrf

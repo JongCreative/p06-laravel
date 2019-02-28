@@ -25,7 +25,7 @@ class PostsController extends Controller
         * return view('posts.index');
         */
 
-        $post = Post::orderBy('created_at', 'DESC')->paginate(3);
+        $post = Post::orderBy('created_at', 'DESC')->paginate(5);
         return view('posts.index')->with('kippetje', $post);
     }
 
