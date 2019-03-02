@@ -41,6 +41,7 @@ ________________________________________________________*/
 }
 /* START NAV.
 ________________________________________________________*/
+
 .wrapper-nav {
     display: flex;
     flex-direction: row;
@@ -58,4 +59,23 @@ ________________________________________________________*/
 .posts-index,
 .post-show {
     flex-direction: column;
+}
+
+/***********************************************************/
+/* FLEX INFO */
+
+.dashboard {
+    flex-direction: column;
+}    
+.wrapper-dashboard {
+    flex-direction: column;
+    background-color: white;
+    padding: 1px;
+}
+.section-dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1px;
+    border: #444 1px solid;
 }

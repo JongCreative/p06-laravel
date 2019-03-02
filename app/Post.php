@@ -10,4 +10,9 @@ class Post extends Model
     protected $primaryKey ='post_id';
     protected $timestamp =true;
 
+    public function user(){
+        //has a relationship with the user & this single post belongs to a user
+        return $this->belongsTo('App\User');
+    }
+
 }

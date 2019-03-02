@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container container-users">
 <div class="content">
     <h1> {{$aapje}}</h1>
         <ul>
@@ -19,5 +20,6 @@
         <!-- end neat way -->
 
         </ul>
-    </div>
+</div>
+</div>
 @endsection 

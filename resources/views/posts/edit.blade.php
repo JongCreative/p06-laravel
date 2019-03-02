@@ -8,7 +8,7 @@
     </div>
 
     <div class="positioning posts-index posts-create2">
-        <form class="form-insert" action="/posts/{{$kippetje->post_id}}" method="POST">
+        <form class="form-insert" action="/posts/{{$kippetje->post_id}}" enctype="multipart/form-data" method="POST">
             @method('PATCH')            
             @csrf
             <article class="wrapper wrapper-post1">
@@ -18,6 +18,7 @@
                 @csrf
             </article>
             <article class="wrapper wrapper-post2">
+                    <input class="post-insert insert-2.1" type="file" name="post_img">
                 <button class="post-insert insert-2.2" type="submit">TEST</button>
             </article>
         </form>

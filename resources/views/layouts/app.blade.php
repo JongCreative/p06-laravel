@@ -28,7 +28,7 @@
             @include('inc.navbar')
         </div>
         <div class="positioning positioning2">
-            {{-- @include('inc.messages') --}}
+            @include('inc.messages')
         </div>
         <div class="positioning positioning3">
             @yield('content')

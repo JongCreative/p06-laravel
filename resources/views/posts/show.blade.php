@@ -12,19 +12,24 @@
             <section class="section-post post-1.1">{{$kippetje->post_title}}</section>
             <section class="section-post post-1.2">{{$kippetje->post_body}}</section>
             <section class="section-post post-1.2">{{$kippetje->post_url}}</section><hr/>
+            <section class="section-post post1.4"><img src="/storage/post_images/{{$kippetje->post_img}}"/></section>
             <section class="section-post post-1.3">{{$kippetje->created_at}}</section>
+            <section class="section-post post-1.3">Created by{{$kippetje->user_id}}</section>
         </article>
     </div>
 
-    <div class="positioning posts-show posts-show3">
-        <button> <a class="btn" href="/posts/{{$kippetje->post_id}}/edit">edit</a></button>
-        <form class="form-insert" action="/posts/{{$kippetje->post_id}}" method="POST">
-            @method('DELETE')            
-            @csrf
-            <button class="post-insert insert-2.2" type="submit" value="delete">delete</button>
-        </form>
-        
-    </div>
+    @if(!Auth::guest())
+    @if(Auth::user()->id == $kippetje->user_id)
+        <div class="positioning posts-show posts-show3">
+            <button><a class="btn" href="/posts/{{$kippetje->post_id}}/edit">edit</a></button>
+            <form class="form-insert" action="/posts/{{$kippetje->post_id}}" method="POST">
+                @method('DELETE')            
+                @csrf
+                <button class="post-insert insert-2.2" type="submit" value="delete">delete</button>
+            </form>
+        </div>
+    @endif
+    @endif
 </div>
 
 @endsection 
